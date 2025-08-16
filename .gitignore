@@ -1,18 +1,18 @@
 __pycache__/
 *.py[cod]
-/output/
-/input/
+#/output/
+#/input/
 !/input/example.png
-/models/
+#/models/
 /temp/
-/custom_nodes/
-!custom_nodes/example_node.py.example
-extra_model_paths.yaml
+#/custom_nodes/
+#!custom_nodes/example_node.py.example
+#extra_model_paths.yaml
 /.vs
 .vscode/
 .idea/
-venv/
-.venv/
+#venv/
+#.venv/
 /web/extensions/*
 !/web/extensions/logging.js.example
 !/web/extensions/core/
@@ -24,3 +24,6 @@ web_custom_versions/
 openapi.yaml
 filtered-openapi.yaml
 uv.lock
+
+# 忽略checkpoint占位文件
+models/checkpoints/put_checkpoints_here
