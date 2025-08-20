@@ -2351,6 +2351,10 @@ async def init_builtin_api_nodes():
         "nodes_moonvalley.py",
         "nodes_rodin.py",
         "nodes_gemini.py",
+<<<<<<< HEAD
+=======
+        "nodes_vidu.py",
+>>>>>>> upstream/master
     ]
 
     if not await load_custom_node(os.path.join(api_nodes_dir, "canary.py"), module_parent="comfy_api_nodes"):

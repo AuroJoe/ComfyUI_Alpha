@@ -1,5 +1,6 @@
 import node_helpers
 import comfy.utils
+<<<<<<< HEAD
 
 PREFERRED_QWENIMAGE_RESOLUTIONS = [
     (672, 1568),
@@ -20,6 +21,9 @@ PREFERRED_QWENIMAGE_RESOLUTIONS = [
     (1504, 688),
     (1568, 672),
 ]
+=======
+import math
+>>>>>>> upstream/master
 
 
 class TextEncodeQwenImageEdit:
@@ -42,6 +46,7 @@ class TextEncodeQwenImageEdit:
         if image is None:
             images = []
         else:
+<<<<<<< HEAD
             images = [image]
             if vae is not None:
                 width = image.shape[2]
@@ -49,6 +54,19 @@ class TextEncodeQwenImageEdit:
                 aspect_ratio = width / height
                 _, width, height = min((abs(aspect_ratio - w / h), w, h) for w, h in PREFERRED_QWENIMAGE_RESOLUTIONS)
                 image = comfy.utils.common_upscale(image.movedim(-1, 1), width, height, "lanczos", "center").movedim(1, -1)
+=======
+            samples = image.movedim(-1, 1)
+            total = int(1024 * 1024)
+
+            scale_by = math.sqrt(total / (samples.shape[3] * samples.shape[2]))
+            width = round(samples.shape[3] * scale_by)
+            height = round(samples.shape[2] * scale_by)
+
+            s = comfy.utils.common_upscale(samples, width, height, "area", "disabled")
+            image = s.movedim(1, -1)
+            images = [image[:, :, :, :3]]
+            if vae is not None:
+>>>>>>> upstream/master
                 ref_latent = vae.encode(image[:, :, :, :3])
 
         tokens = clip.tokenize(prompt, images=images)

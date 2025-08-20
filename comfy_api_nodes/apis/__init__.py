@@ -1315,6 +1315,10 @@ class KlingTaskStatus(str, Enum):
 class KlingTextToVideoModelName(str, Enum):
     kling_v1 = 'kling-v1'
     kling_v1_6 = 'kling-v1-6'
+<<<<<<< HEAD
+=======
+    kling_v2_1_master = 'kling-v2-1-master'
+>>>>>>> upstream/master
 
 
 class KlingVideoGenAspectRatio(str, Enum):
@@ -1347,6 +1351,11 @@ class KlingVideoGenModelName(str, Enum):
     kling_v1_5 = 'kling-v1-5'
     kling_v1_6 = 'kling-v1-6'
     kling_v2_master = 'kling-v2-master'
+<<<<<<< HEAD
+=======
+    kling_v2_1 = 'kling-v2-1'
+    kling_v2_1_master = 'kling-v2-1-master'
+>>>>>>> upstream/master
 
 
 class KlingVideoResult(BaseModel):
@@ -1620,13 +1629,21 @@ class MinimaxTaskResultResponse(BaseModel):
     task_id: str = Field(..., description='The task ID being queried.')
 
 
+<<<<<<< HEAD
 class Model(str, Enum):
+=======
+class MiniMaxModel(str, Enum):
+>>>>>>> upstream/master
     T2V_01_Director = 'T2V-01-Director'
     I2V_01_Director = 'I2V-01-Director'
     S2V_01 = 'S2V-01'
     I2V_01 = 'I2V-01'
     I2V_01_live = 'I2V-01-live'
     T2V_01 = 'T2V-01'
+<<<<<<< HEAD
+=======
+    Hailuo_02 = 'MiniMax-Hailuo-02'
+>>>>>>> upstream/master
 
 
 class SubjectReferenceItem(BaseModel):
@@ -1648,7 +1665,11 @@ class MinimaxVideoGenerationRequest(BaseModel):
         None,
         description='URL or base64 encoding of the first frame image. Required when model is I2V-01, I2V-01-Director, or I2V-01-live.',
     )
+<<<<<<< HEAD
     model: Model = Field(
+=======
+    model: MiniMaxModel = Field(
+>>>>>>> upstream/master
         ...,
         description='Required. ID of model. Options: T2V-01-Director, I2V-01-Director, S2V-01, I2V-01, I2V-01-live, T2V-01',
     )
@@ -1665,6 +1686,17 @@ class MinimaxVideoGenerationRequest(BaseModel):
         None,
         description='Only available when model is S2V-01. The model will generate a video based on the subject uploaded through this parameter.',
     )
+<<<<<<< HEAD
+=======
+    duration: Optional[int] = Field(
+        None,
+        description="The length of the output video in seconds."
+    )
+    resolution: Optional[str] = Field(
+        None,
+        description="The dimensions of the video display. 1080p corresponds to 1920 x 1080 pixels, 768p corresponds to 1366 x 768 pixels."
+    )
+>>>>>>> upstream/master
 
 
 class MinimaxVideoGenerationResponse(BaseModel):
